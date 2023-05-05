@@ -36,16 +36,14 @@ func playerMove(matr [][]string, dx, dy int, sym string) {
 }
 
 func checkFullFilled(matr [][]string) bool { //! matrix hasn`t empty strings ""
-	var key bool = true
 	for i := 0; i < 3; i++ {
-		for j := 0; j > 3; j++ {
-			if (matr[i][j] != "X") || (matr[i][j] != "O") {
-				key = false
-				return key
+		for j := 0; j < 3; j++ {
+			if (matr[i][j] != "X") && (matr[i][j] != "O") {
+				return false
 			}
 		}
 	}
-	return key
+	return true
 }
 
 //! check 1st or 2nd player wins
