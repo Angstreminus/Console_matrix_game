@@ -132,7 +132,6 @@ func checkCombinations(matr [][]string) (bool, bool) {
 }
 
 func main() {
-	fmt.Println("" == "O")
 
 	fmt.Println("Start game! ")
 
@@ -143,9 +142,9 @@ func main() {
 	}
 
 	printMatrix(arr)
-	var (
-		dx, dy int
-	)
+
+	var dx, dy int
+
 	for {
 		var player1Win, player2Win bool
 
@@ -153,7 +152,7 @@ func main() {
 
 		fmt.Scanf("%d %d", &dx, &dy)
 		for {
-			//! Force user unil data will be valid
+			//! Force user until data will be valid
 			if validateMove(arr, dx, dy) {
 				break
 			} else {
@@ -161,7 +160,9 @@ func main() {
 				fmt.Scanf("%d %d", &dx, &dy)
 			}
 		}
+
 		playerMove(arr, dx, dy, "X")
+
 		printMatrix(arr)
 
 		player1Win, player2Win = checkCombinations(arr)
@@ -177,6 +178,7 @@ func main() {
 		}
 
 		fmt.Println("Player 2, input your coordinates: [X] [Y]")
+
 		fmt.Scanf("%d %d", &dx, &dy)
 		//! Validating move
 		for {
@@ -184,7 +186,7 @@ func main() {
 			if validateMove(arr, dx, dy) {
 				break
 			} else {
-				fmt.Println("Player 1, input your coordinates: [X] [Y]")
+				fmt.Println("Player 2, input your coordinates: [X] [Y]")
 				fmt.Scanf("%d %d", &dx, &dy)
 			}
 		}
